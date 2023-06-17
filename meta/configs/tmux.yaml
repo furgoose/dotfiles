@@ -1,0 +1,2 @@
+- shell:
+    - [sudo gem install tmuxinator, "Install tmuxinator"]

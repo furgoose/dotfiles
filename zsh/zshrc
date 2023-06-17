@@ -1,0 +1,23 @@
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+ZSH=$(antidote path ohmyzsh/ohmyzsh)
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+[[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
+
+antidote load
+
+fpath+=~/.zsh
+
+config_files=(~/.zsh/**/*.zsh(N))
+for file in ${config_files}; do
+    source $file
+done
+
+bindkey -e
+
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
+
+eval `starship init zsh`

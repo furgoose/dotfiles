@@ -1,0 +1,22 @@
+- shell:
+    - command: ~/.dotfiles/scripts/set_zsh
+      description: "Making ZSH the default shell"
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: 'if [ ! -d "$HOME/.fzf" ]; then git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; fi && ~/.fzf/install --bin'
+      description: Installing FZF
+    - command: curl -sS https://starship.rs/install.sh | sh -s -- --yes
+      description: Installing Starship
+    - command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+      description: Installing Rust
+    - command: source "$HOME/.cargo/env" && cargo install exa
+      description: Installing exa
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
+    ~/.zsh_plugins.txt: zsh/zsh_plugins.txt
+    ~/.antidote: zsh/antidote
+    ~/.zsh/aliases.zsh: zsh/zsh/aliases.zsh
+    ~/.zsh/config.zsh: zsh/zsh/config.zsh
+    ~/.config/starship.toml: zsh/starship.toml

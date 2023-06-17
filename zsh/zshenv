@@ -1,0 +1,15 @@
+export VISUAL=vim
+export EDITOR=vim
+export PAGER=less
+
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ g"
+
+env_config_files=(~/.zsh/**/*.zshenv(N))
+for file in ${env_config_files}; do
+    source $file
+done
+
+. "$HOME/.cargo/env"
+
+# User binaries
+export PATH=$PATH:$HOME/.local/bin

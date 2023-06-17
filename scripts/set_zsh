@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if (cat /etc/passwd | grep $USER | grep /usr/bin/zsh); then
+  echo "ZSH is already the default shell"
+else
+  chsh -s /usr/bin/zsh
+fi
